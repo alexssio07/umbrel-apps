@@ -1,0 +1,41 @@
+{
+  "id": "ervongola-botdiscord",
+  "name": "ErVongola Bot Discord",
+  "version": "1.0.0",
+  "description": "Bot Discord personalizzato di Alexssio con funzionalità audio e di gestione utenti.",
+  "categories": ["social", "automation", "bots"],
+  "icon": "https://github.com/alexssio07/ervongola-bot-discord/raw/main/immagine_profilo.jpg",
+  "author": "Alexssio",
+  "website": "https://github.com/alexssio07/ervongola-bot-discord",
+  "repository": "https://github.com/alexssio07/ervongola-bot-discord",
+  "license": "MIT",
+  "dependencies": [],
+  "ports": [],
+  "volumes": [
+    {
+      "path": "/app/BotDiscord",
+      "description": "Cartella contenente i file e le configurazioni del bot."
+    }
+  ],
+  "env": [
+    {
+      "name": "DISCORD_TOKEN",
+      "description": "Token di autenticazione del bot Discord",
+      "default": ""
+    },
+    {
+      "name": "KEY_API_PERSONAL_AI",
+      "description": "API key per il Personal AI",
+      "default": ""
+    },
+    {
+      "name": "KEY_JWT_PERSONAL_AI",
+      "description": "JWT per il Personal AI",
+      "default": ""
+    }
+  ],
+  "image": "alexssio/bot-discord:latest",
+  "host": "ErVongola-BotDiscord",
+  "privileged": true,
+  "restart_policy": "unless-stopped"
+}

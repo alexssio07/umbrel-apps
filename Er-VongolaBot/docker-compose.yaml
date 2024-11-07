@@ -1,0 +1,41 @@
+name: ErVongolaBot
+services:
+  main_app:
+    cpu_shares: 50
+    command:
+      - python /app/bot-discord.py
+    container_name: ErVongola-BotDiscord
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+        - DISCORD_TOKEN=${DISCORD_TOKEN}
+        - KEY_API_PERSONAL_AI=${KEY_API_PERSONAL_AI}
+        - KEY_JWT_PERSONAL_AI=${KEY_JWT_PERSONAL_AI}
+    hostname: ErVongola-BotDiscord
+    image: alexssio/bot-discord:latest
+    labels:
+      icon: https://github.com/alexssio07/ervongola-bot-discord/raw/main/immagine_profilo.jpg
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/Documents/BotDiscord
+        target: /app
+      - type: bind
+        source: /DATA/Documents/BotDiscord/json
+        target: /app/json
+    network_mode: bridge
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://github.com/alexssio07/ervongola-bot-discord/raw/main/immagine_profilo.jpg
+  index: /
+  is_uncontrolled: false
+  port_map: ""
+  scheme: http
+  store_app_id: ErVongolaBot
+  title:
+    custom: ErVongolaBot
